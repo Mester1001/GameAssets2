@@ -8,7 +8,8 @@ using UnityEngine.UIElements;
 
 /*
  * Script By Isak Sørøy
- * 05.Sep 2023
+ * first created: 05.Sep 2023
+ * Last Updated: 20.Sep 2023
  * 
  */
 
@@ -82,6 +83,8 @@ public class playerMovement : MonoBehaviour
     {
         playerInput();
 
+
+        //The following code controlls the camera, first checks for mouse input, then rotates the player left and right, and then rotates the camera up and down.
         if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
         {
             //Debug.Log("Camera moved");
@@ -124,7 +127,7 @@ public class playerMovement : MonoBehaviour
 
 
 
-    //private void OnCollisionStay(Collision collision) //Side Effect of wall jumping
+    //private void OnCollisionStay(Collision collision) //Has the side effect of wall jumping
     //{
     //    isGrounded = true;
     //}
