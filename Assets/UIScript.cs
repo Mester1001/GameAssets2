@@ -46,4 +46,15 @@ public class UIScript : MonoBehaviour
 
         }
     }
+
+
+    public void ExitGame()
+    {
+        if (escMenuState) {
+            Debug.Log("Attempting to Exit game");
+            Application.Quit(); 
+        }
+    }
+
+
 }
