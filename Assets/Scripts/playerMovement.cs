@@ -9,8 +9,8 @@ using UnityEngine.UIElements;
 /*
  * Script By Isak Sørøy
  * first created: 05.Sep 2023
- * Last Updated: 20.Sep 2023
- * 
+ * Last Updated: 7.Nov 2023
+ * Ver. 0.2
  */
 
 
@@ -27,11 +27,53 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private bool isGrounded = true;
     [SerializeField] private Rigidbody Rigidbody;
     [SerializeField] private LayerMask groundLayer;
+    public bool canMove = true;
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (canMove)
+        {
+            playerInput();
+            PlayerCameraControl();
+        }
+        RaycastHit hit;
+
+        isGrounded = Physics.SphereCast(transform.position, rayRadius, Vector3.down, out hit, rayReach, groundLayer);
+        
+             
+    }
+
+
+
+    private void PlayerCameraControl()
+    {   
+        //The following code controlls the camera, first checks for mouse input, then rotates the player left and right, and then rotates the camera up and down.
+        if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
+        {
+            //Debug.Log("Camera moved");
+
+            transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * mouseSens, 0);
+            playerCamera.transform.eulerAngles -= new Vector3(Input.GetAxis("Mouse Y") * mouseSens, 0, 0);
+        }
+    }
+
 
 
 
     private void playerInput()  // Controls wasd for movement
     {
+        
         if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -49,79 +91,18 @@ public class playerMovement : MonoBehaviour
             transform.position += transform.right * moveSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space))
         {
-            if (isGrounded == true) 
-            { 
+            if (isGrounded == true)
+            {
                 GetComponent<Rigidbody>().velocity = Vector3.up * jumpHeight;
                 Debug.Log("Jumped");
             } else {
                 Debug.Log("Not grounded");
             }
-            
+
         }
-
-
-    }
-
-
-    //private void Awake() //Gets called before start
-    //{
-    //    Rigidbody = GetComponent<Rigidbody>();
-    //}
-
-    // Start is called before the first frame update
-    void Start()
-    {
         
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        playerInput();
-
-
-        //The following code controlls the camera, first checks for mouse input, then rotates the player left and right, and then rotates the camera up and down.
-        if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
-        {
-            //Debug.Log("Camera moved");
-
-            transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * mouseSens, 0);
-            playerCamera.transform.eulerAngles -= new Vector3(Input.GetAxis("Mouse Y") * mouseSens, 0, 0);
-        }
-
-
-
-
-
-
-
-        RaycastHit hit;
-
-        isGrounded = Physics.SphereCast(transform.position, rayRadius, Vector3.down, out hit, rayReach, groundLayer);
-        
-        
-        //isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, rayReach, groundLayer);
-
-
-        
-        /*
-        float horizontalAxis = Input.GetAxis("Horizontal");
-        float verticalAxis = Input.GetAxis("Vertical");
-
-        Vector3 velocity = new Vector3(horizontalAxis, 0f, verticalAxis) * moveSpeed * Time.deltaTime;
-
-        transform.position += velocity; 
-            
-        rigidbody.AddForce(velocity * 10, ForceMode.Force); 
-
-        */
-
-
-
 
     }
 
