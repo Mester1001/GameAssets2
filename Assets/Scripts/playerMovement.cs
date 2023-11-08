@@ -47,6 +47,7 @@ public class playerMovement : MonoBehaviour
             playerInput();
             PlayerCameraControl();
         }
+
         RaycastHit hit;
 
         isGrounded = Physics.SphereCast(transform.position, rayRadius, Vector3.down, out hit, rayReach, groundLayer);
