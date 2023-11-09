@@ -97,9 +97,9 @@ public class playerMovement : MonoBehaviour
             if (isGrounded == true)
             {
                 GetComponent<Rigidbody>().velocity = Vector3.up * jumpHeight;
-                Debug.Log("Jumped");
+                //Debug.Log("Jumped");
             } else {
-                Debug.Log("Not grounded");
+                //Debug.Log("Not grounded");
             }
 
         }

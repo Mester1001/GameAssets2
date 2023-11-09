@@ -1,6 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
+/*
+ * Script By Isak Sørøy
+ * first created: 08.Nov 2023
+ * Last Updated: 09.Nov 2023
+ * Ver. 0.1
+ */
+
 
 public class interactingScript : MonoBehaviour
 {
@@ -11,6 +21,9 @@ public class interactingScript : MonoBehaviour
     [SerializeField] private GameObject leftHand;
     private GameObject leftHandContent;
     [SerializeField] private GameObject flashlight;
+    [SerializeField] private GameObject fuse;
+    [SerializeField] private GameObject generator;
+    [SerializeField] private GameObject sharkSubKey;
     private bool leftHandFull = false;
     public bool hasFlashlight = false;
     private GameObject rayCollider;
@@ -53,7 +66,7 @@ public class interactingScript : MonoBehaviour
                         rayCollider.gameObject.transform.position = rightHand.transform.position;
                         rayCollider.gameObject.transform.rotation = rightHand.transform.rotation;
                     }
-                    else if (!leftHandFull)
+                    else if (!leftHandFull && (rayCollider.gameObject == fuse || rayCollider.gameObject == sharkSubKey))
                     {
                         leftHandFull = true;
                         leftHandContent = rayCollider.gameObject;
@@ -62,25 +75,29 @@ public class interactingScript : MonoBehaviour
                         leftHandContent.transform.position = leftHand.transform.position;
                         leftHandContent.transform.rotation = leftHand.transform.rotation;
                     }
+
+                    //If player has fuse place fuse in generator.
+                    if (fuse == leftHandContent && rayCollider.gameObject == generator)
+                    {
+                        Debug.Log("Generator found, fuse placed");
+                        leftHandContent.transform.parent = rayCollider.gameObject.transform.GetChild(0).gameObject.transform;
+                        leftHandContent.transform.position = rayCollider.gameObject.transform.GetChild(0).gameObject.transform.position;
+                        leftHandContent.transform.rotation = rayCollider.gameObject.transform.GetChild(0).gameObject.transform.rotation;
+                        leftHandFull = false;
+
+                        //Remember to do whatever the generator will do.
+
+                    }
+
+
+
                 }
-
-
-                
-
-
             }
-                
-
-
-            //Debug.Log(Physics.Raycast(_camera.transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 7));
         }
 
 
         
-        //raycast, if looking at (interactible object) pickup item script.
-        //hide or remove item from where it was, depending on which item, make it appear in hand.
-        //Change value saying it is picked up
-        //
+
 
 
 
