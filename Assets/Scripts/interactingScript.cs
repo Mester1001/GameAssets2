@@ -7,6 +7,14 @@ public class interactingScript : MonoBehaviour
 
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask interactive;
+    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject leftHand;
+    private GameObject leftHandContent;
+    [SerializeField] private GameObject flashlight;
+    private bool leftHandFull = false;
+    public bool hasFlashlight = false;
+    private GameObject rayCollider;
+
 
 
     // Start is called before the first frame update
@@ -26,11 +34,40 @@ public class interactingScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, interactive))
+            if (Physics.Raycast(ray, out hit, 5))
             {
-                Debug.Log("Found something");
+                rayCollider = hit.collider.gameObject;
+                /*Debug.Log("Found something");
                 Debug.DrawLine(ray.origin, hit.point);
                 Debug.Log("Hit: " + hit.collider);
+                Debug.Log(rayCollider);*/
+
+                Debug.Log("is: " + rayCollider.gameObject.layer + " = " + 7);
+                if (rayCollider.gameObject.layer == 7)
+                {
+                    //trying to move the collided object into rightHand if flashlight. otherwise if left is empty place collided object in left hand. 
+                    if (rayCollider.gameObject == flashlight)
+                    {
+                        hasFlashlight = true;
+                        rayCollider.gameObject.transform.parent = rightHand.transform;
+                        rayCollider.gameObject.transform.position = rightHand.transform.position;
+                        rayCollider.gameObject.transform.rotation = rightHand.transform.rotation;
+                    }
+                    else if (!leftHandFull)
+                    {
+                        leftHandFull = true;
+                        leftHandContent = rayCollider.gameObject;
+                        Debug.Log("Left hand picked up: " + rayCollider.gameObject);
+                        leftHandContent.transform.parent = leftHand.transform;
+                        leftHandContent.transform.position = leftHand.transform.position;
+                        leftHandContent.transform.rotation = leftHand.transform.rotation;
+                    }
+                }
+
+
+                
+
+
             }
                 
 
