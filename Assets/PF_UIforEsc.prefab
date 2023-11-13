@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa079bb90711ce4dafa0fdb7650a916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIReference: {fileID: 5475390877998280687}
+  UIReference: {fileID: 2866735955658420679}
   playerScript: {fileID: 0}
 --- !u!1 &9049366935362660592
 GameObject:
