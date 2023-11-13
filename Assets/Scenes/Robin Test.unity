@@ -609,7 +609,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -434682708145500111, guid: 4753813716c839f4c9dca0f712c9f836, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932239460}
   m_SourcePrefab: {fileID: 100100000, guid: 4753813716c839f4c9dca0f712c9f836, type: 3}
 --- !u!1001 &74636885
 PrefabInstance:
@@ -3099,6 +3102,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc0f3c335c77ca54583449f006b4e5cb, type: 3}
+--- !u!1 &932239456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -434682708145500111, guid: 4753813716c839f4c9dca0f712c9f836, type: 3}
+  m_PrefabInstance: {fileID: 47224976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &932239460
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932239456}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9157500311675594552, guid: 4753813716c839f4c9dca0f712c9f836, type: 3}
 --- !u!1001 &933155724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4175,12 +4205,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232781922}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.423, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1296739531}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1292955091
 PrefabInstance:
@@ -4255,8 +4285,10 @@ GameObject:
   - component: {fileID: 1296739530}
   - component: {fileID: 1296739529}
   - component: {fileID: 1296739528}
+  - component: {fileID: 1296739532}
+  - component: {fileID: 1296739533}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4347,9 +4379,61 @@ Transform:
   m_LocalPosition: {x: -5.02, y: 1.583, z: 7.63}
   m_LocalScale: {x: 0.534418, y: 0.82322, z: 0.5374003}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1232781925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296739532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296739527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b19477c303e024688e81053337db10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  mouseSens: 2
+  jumpHeight: 5
+  rayReach: 1
+  rayRadius: 1
+  playerCamera: {fileID: 1232781924}
+  isGrounded: 1
+  Rigidbody: {fileID: 1296739533}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  canMove: 1
+--- !u!54 &1296739533
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296739527}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1001 &1306868871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7937,8 +8021,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1232781925}
   - {fileID: 560097632}
+  - {fileID: 1296739531}
   - {fileID: 289474787}
   - {fileID: 1168071829}
   - {fileID: 1292955091}
@@ -7989,7 +8073,6 @@ SceneRoots:
   - {fileID: 1625140504}
   - {fileID: 1975202322}
   - {fileID: 1203356520}
-  - {fileID: 1296739531}
   - {fileID: 938726772}
   - {fileID: 2054003396}
   - {fileID: 1501334271}
