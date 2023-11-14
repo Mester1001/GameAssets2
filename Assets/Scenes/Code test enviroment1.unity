@@ -1460,6 +1460,8 @@ MonoBehaviour:
   fuse: {fileID: 1207432549}
   generator: {fileID: 124181059}
   sharkSubKey: {fileID: 980148930}
+  sharkSub: {fileID: 0}
+  UIReference: {fileID: 0}
   flashlightScript: {fileID: 8203134041738673963}
 --- !u!1 &839189815
 GameObject:
@@ -2973,6 +2975,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2866735955658420679, guid: e7f2540c8eedb4440bbb4dfcc1c8268d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475390877998280687, guid: e7f2540c8eedb4440bbb4dfcc1c8268d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6351321972888526479, guid: e7f2540c8eedb4440bbb4dfcc1c8268d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.364189
@@ -3011,6 +3021,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6351321972888526479, guid: e7f2540c8eedb4440bbb4dfcc1c8268d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654478717566771201, guid: e7f2540c8eedb4440bbb4dfcc1c8268d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8954470084379580124, guid: e7f2540c8eedb4440bbb4dfcc1c8268d, type: 3}
