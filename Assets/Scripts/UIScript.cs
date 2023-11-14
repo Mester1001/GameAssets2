@@ -13,6 +13,7 @@ public class UIScript : MonoBehaviour
 {
     private bool escMenuState = false;
     [SerializeField] private GameObject UIReference;
+    [SerializeField] private GameObject VictoryScreen;
     [SerializeField] public playerMovement playerScript;
 
 
@@ -21,6 +22,7 @@ public class UIScript : MonoBehaviour
     void Start()
     {
         UIReference.SetActive(false);
+        VictoryScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -66,5 +68,9 @@ public class UIScript : MonoBehaviour
         }
     }
 
+    public void Victory()
+    {
+        VictoryScreen.SetActive(true);
+    }
 
 }

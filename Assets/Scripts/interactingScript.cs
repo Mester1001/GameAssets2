@@ -25,6 +25,7 @@ public class interactingScript : MonoBehaviour
     [SerializeField] private GameObject generator;
     [SerializeField] private GameObject sharkSubKey;
     [SerializeField] private GameObject sharkSub;
+    [SerializeField] private GameObject UIReference;
     private bool leftHandFull = false;
     [SerializeField] private GameObject flashlightScript;
     private GameObject rayCollider;
@@ -111,7 +112,7 @@ public class interactingScript : MonoBehaviour
                         leftHandFull = false;
                         leftHandContent = null;
 
-                        //Remember to do whatever Winning will do.
+                        UIReference.gameObject.GetComponent<UIScript>().Victory();
 
                     }
 
