@@ -22022,6 +22022,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781232628}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1797973536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9016718819389060036, guid: 8fa5341151214e340a6ac6d390188b46, type: 3}
+  m_PrefabInstance: {fileID: 1750081610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1805874129
 GameObject:
   m_ObjectHideFlags: 0
@@ -22557,6 +22562,7 @@ MonoBehaviour:
   fuse: {fileID: 1621407410}
   generator: {fileID: 1306167154}
   sharkSubKey: {fileID: 156001255}
+  sharkSub: {fileID: 1797973536}
   flashlightScript: {fileID: 628825192}
 --- !u!1 &1828946012
 GameObject:

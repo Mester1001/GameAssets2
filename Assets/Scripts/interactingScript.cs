@@ -7,8 +7,8 @@ using UnityEngine;
 /*
  * Script By Isak Sørøy
  * first created: 08.Nov 2023
- * Last Updated: 13.Nov 2023
- * Ver. 0.1
+ * Last Updated: 14.Nov 2023
+ * Ver. 0.2
  */
 
 
@@ -24,6 +24,7 @@ public class interactingScript : MonoBehaviour
     [SerializeField] private GameObject fuse;
     [SerializeField] private GameObject generator;
     [SerializeField] private GameObject sharkSubKey;
+    [SerializeField] private GameObject sharkSub;
     private bool leftHandFull = false;
     [SerializeField] private GameObject flashlightScript;
     private GameObject rayCollider;
@@ -88,6 +89,19 @@ public class interactingScript : MonoBehaviour
                         leftHandContent = null;
 
                         //Remember to do whatever the generator will do.
+
+                    }
+
+                    if (sharkSubKey == leftHandContent && rayCollider.gameObject == sharkSub)
+                    {
+                        Debug.Log("Game Won");
+                        leftHandContent.transform.parent = rayCollider.gameObject.transform;
+                        leftHandContent.transform.position = rayCollider.gameObject.transform.position;
+                        leftHandContent.transform.rotation = rayCollider.gameObject.transform.rotation;
+                        leftHandFull = false;
+                        leftHandContent = null;
+
+                        //Remember to do whatever Winning will do.
 
                     }
 
