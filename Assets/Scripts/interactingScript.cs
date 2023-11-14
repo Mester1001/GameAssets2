@@ -53,13 +53,23 @@ public class interactingScript : MonoBehaviour
                 rayCollider = hit.collider.gameObject;
                 /*Debug.Log("Found something");
                 Debug.DrawLine(ray.origin, hit.point);
-                Debug.Log("Hit: " + hit.collider);
-                Debug.Log(rayCollider);*/
+                Debug.Log("Hit: " + hit.collider);*/
+                Debug.Log(rayCollider);
                 //Debug.Log("is: " + rayCollider.gameObject.layer + " = " + 7);
 
                 //If the Object hit by the raycast is on layer 7 (Interactive) then continue in code.
                 if (rayCollider.gameObject.layer == 7)
                 {
+
+                    //If target Object is A drawer Interact with drawer, then return
+
+                    if (rayCollider.gameObject.name == "Drawer")
+                    {
+                        rayCollider.gameObject.GetComponent<DrawerScript>().interactWithDrawer();
+                        return;
+                    }
+
+
                     //trying to move the collided object into rightHand if flashlight. otherwise if left is empty place collided object in left hand. 
                     if (rayCollider.gameObject == flashlight)
                     {
