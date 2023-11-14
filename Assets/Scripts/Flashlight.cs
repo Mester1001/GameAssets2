@@ -7,10 +7,11 @@ public class Flashlight : MonoBehaviour
 {
 
 
-    [SerializeField] private int time = 100;
-    [SerializeField] private float maxTime = 10000;
+    [SerializeField] private int time = 1000;
+    [SerializeField] private float maxTime = 3000;
     [SerializeField] private float multiplier = 2f;
     [SerializeField] private GameObject Spotlight;
+    [SerializeField] public bool hasFlashlight = false;
     private float countdown = 0;
 
 
@@ -23,6 +24,9 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if (!hasFlashlight) { return; }
 
         Countdown();
 

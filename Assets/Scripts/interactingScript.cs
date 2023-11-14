@@ -7,7 +7,7 @@ using UnityEngine;
 /*
  * Script By Isak Sørøy
  * first created: 08.Nov 2023
- * Last Updated: 09.Nov 2023
+ * Last Updated: 13.Nov 2023
  * Ver. 0.1
  */
 
@@ -25,7 +25,7 @@ public class interactingScript : MonoBehaviour
     [SerializeField] private GameObject generator;
     [SerializeField] private GameObject sharkSubKey;
     private bool leftHandFull = false;
-    public bool hasFlashlight = false;
+    [SerializeField] private GameObject flashlightScript;
     private GameObject rayCollider;
 
 
@@ -54,14 +54,15 @@ public class interactingScript : MonoBehaviour
                 Debug.DrawLine(ray.origin, hit.point);
                 Debug.Log("Hit: " + hit.collider);
                 Debug.Log(rayCollider);*/
+                //Debug.Log("is: " + rayCollider.gameObject.layer + " = " + 7);
 
-                Debug.Log("is: " + rayCollider.gameObject.layer + " = " + 7);
+                //If the Object hit by the raycast is on layer 7 (Interactive) then continue in code.
                 if (rayCollider.gameObject.layer == 7)
                 {
                     //trying to move the collided object into rightHand if flashlight. otherwise if left is empty place collided object in left hand. 
                     if (rayCollider.gameObject == flashlight)
                     {
-                        hasFlashlight = true;
+                        flashlightScript.GetComponent<Flashlight>().hasFlashlight = true;
                         rayCollider.gameObject.transform.parent = rightHand.transform;
                         rayCollider.gameObject.transform.position = rightHand.transform.position;
                         rayCollider.gameObject.transform.rotation = rightHand.transform.rotation;
@@ -84,6 +85,7 @@ public class interactingScript : MonoBehaviour
                         leftHandContent.transform.position = rayCollider.gameObject.transform.GetChild(0).gameObject.transform.position;
                         leftHandContent.transform.rotation = rayCollider.gameObject.transform.GetChild(0).gameObject.transform.rotation;
                         leftHandFull = false;
+                        leftHandContent = null;
 
                         //Remember to do whatever the generator will do.
 
