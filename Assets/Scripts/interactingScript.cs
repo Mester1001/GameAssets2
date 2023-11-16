@@ -103,7 +103,7 @@ public class interactingScript : MonoBehaviour
 
                     }
 
-                    if (sharkSubKey == leftHandContent && rayCollider.gameObject == sharkSub)
+                    if (sharkSubKey == leftHandContent && rayCollider.gameObject.transform.parent.gameObject == sharkSub)
                     {
                         Debug.Log("Game Won");
                         leftHandContent.transform.parent = rayCollider.gameObject.transform;
