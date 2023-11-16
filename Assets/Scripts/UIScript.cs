@@ -45,7 +45,7 @@ public class UIScript : MonoBehaviour
             if (!escMenuState)
         {
             escMenuState = true;
-            Debug.Log("UI Opened");
+            //Debug.Log("UI Opened");
             UIReference.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             playerScript.canMove = false;
@@ -53,7 +53,7 @@ public class UIScript : MonoBehaviour
         else
         {
             escMenuState = false;
-            Debug.Log("UI Closed");
+            //Debug.Log("UI Closed");
             UIReference.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.canMove = true;

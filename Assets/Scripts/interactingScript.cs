@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 /*
  * Script By Isak Sørøy
  * first created: 08.Nov 2023
- * Last Updated: 14.Nov 2023
- * Ver. 0.2
+ * Last Updated: 16.Nov 2023
+ * Ver. 0.3
  */
 
 
@@ -32,11 +33,8 @@ public class interactingScript : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -51,56 +49,47 @@ public class interactingScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 3))
             {
-                rayCollider = hit.collider.gameObject;
-                /*Debug.Log("Found something");
-                Debug.DrawLine(ray.origin, hit.point);
-                Debug.Log("Hit: " + hit.collider);*/
-                Debug.Log(rayCollider);
-                //Debug.Log("is: " + rayCollider.gameObject.layer + " = " + 7);
+                rayCollider = hit.collider.gameObject.gameObject;
+                Debug.Log("I hit: " + rayCollider);
 
                 //If the Object hit by the raycast is on layer 7 (Interactive) then continue in code.
-                if (rayCollider.gameObject.layer == 7)
+                if (rayCollider.layer == 7)
                 {
 
-                    //If target Object is A drawer or door Interact with drawer or door, then return
 
-                    if (rayCollider.gameObject.name == "Drawer")
+                    if (rayCollider.GetComponent<interacteble>())   //If the raycast hits a object with an interacteble class it will try to use it.
                     {
-                        rayCollider.gameObject.GetComponent<DrawerScript>().interactWithDrawer();
-                        return;
-                    }
-                    if (rayCollider.gameObject.name == "Door")
-                    {
-                        rayCollider.gameObject.GetComponent<doorScript>().interactWithDoor();
+                        rayCollider.GetComponent<interacteble>().interacted();
                         return;
                     }
 
 
                     //trying to move the collided object into rightHand if flashlight. otherwise if left is empty place collided object in left hand. 
-                    if (rayCollider.gameObject == flashlight)
+                    if (rayCollider == flashlight)
                     {
+
                         flashlightScript.GetComponent<Flashlight>().hasFlashlight = true;
-                        rayCollider.gameObject.transform.parent = rightHand.transform;
-                        rayCollider.gameObject.transform.position = rightHand.transform.position;
-                        rayCollider.gameObject.transform.rotation = rightHand.transform.rotation;
+                        rayCollider.transform.parent = rightHand.transform;
+                        rayCollider.transform.position = rightHand.transform.position;
+                        rayCollider.transform.rotation = rightHand.transform.rotation;
                     }
-                    else if (!leftHandFull && (rayCollider.gameObject == fuse || rayCollider.gameObject == sharkSubKey))
+                    else if (!leftHandFull && (rayCollider == fuse || rayCollider == sharkSubKey))
                     {
                         leftHandFull = true;
-                        leftHandContent = rayCollider.gameObject;
-                        Debug.Log("Left hand picked up: " + rayCollider.gameObject);
+                        leftHandContent = rayCollider;
+                        Debug.Log("Left hand picked up: " + rayCollider);
                         leftHandContent.transform.parent = leftHand.transform;
                         leftHandContent.transform.position = leftHand.transform.position;
                         leftHandContent.transform.rotation = leftHand.transform.rotation;
                     }
 
                     //If player has fuse place fuse in generator.
-                    if (fuse == leftHandContent && rayCollider.gameObject == generator)
+                    if (fuse == leftHandContent && rayCollider == generator)
                     {
                         Debug.Log("Generator found, fuse placed");
-                        leftHandContent.transform.parent = rayCollider.gameObject.transform.GetChild(0).gameObject.transform;
-                        leftHandContent.transform.position = rayCollider.gameObject.transform.GetChild(0).gameObject.transform.position;
-                        leftHandContent.transform.rotation = rayCollider.gameObject.transform.GetChild(0).gameObject.transform.rotation;
+                        leftHandContent.transform.parent = rayCollider.transform.GetChild(0).gameObject.transform;
+                        leftHandContent.transform.position = rayCollider.transform.GetChild(0).gameObject.transform.position;
+                        leftHandContent.transform.rotation = rayCollider.transform.GetChild(0).gameObject.transform.rotation;
                         leftHandFull = false;
                         leftHandContent = null;
 
@@ -108,32 +97,20 @@ public class interactingScript : MonoBehaviour
 
                     }
 
-                    if (sharkSubKey == leftHandContent && rayCollider.gameObject.transform.parent.gameObject == sharkSub)
+                    if (sharkSubKey == leftHandContent && rayCollider.transform.parent.gameObject == sharkSub)
                     {
                         Debug.Log("Game Won");
-                        leftHandContent.transform.parent = rayCollider.gameObject.transform;
-                        leftHandContent.transform.position = rayCollider.gameObject.transform.position;
-                        leftHandContent.transform.rotation = rayCollider.gameObject.transform.rotation;
+                        leftHandContent.transform.parent = rayCollider.transform;
+                        leftHandContent.transform.position = rayCollider.transform.position;
+                        leftHandContent.transform.rotation = rayCollider.transform.rotation;
                         leftHandFull = false;
                         leftHandContent = null;
 
                         UIReference.gameObject.GetComponent<UIScript>().Victory();
 
                     }
-
-
-
                 }
             }
         }
-
-
-        
-
-
-
-
-
-
     }
 }

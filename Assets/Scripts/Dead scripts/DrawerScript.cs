@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrawerScript : MonoBehaviour
 {
 
+
     [SerializeField] private bool isOpen = false;
     [SerializeField] private bool isBusy = false;
 
