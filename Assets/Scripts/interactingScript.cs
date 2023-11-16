@@ -62,11 +62,16 @@ public class interactingScript : MonoBehaviour
                 if (rayCollider.gameObject.layer == 7)
                 {
 
-                    //If target Object is A drawer Interact with drawer, then return
+                    //If target Object is A drawer or door Interact with drawer or door, then return
 
                     if (rayCollider.gameObject.name == "Drawer")
                     {
                         rayCollider.gameObject.GetComponent<DrawerScript>().interactWithDrawer();
+                        return;
+                    }
+                    if (rayCollider.gameObject.name == "Door")
+                    {
+                        rayCollider.gameObject.GetComponent<doorScript>().interactWithDoor();
                         return;
                     }
 
