@@ -49,7 +49,7 @@ public class interactingScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 5))
+            if (Physics.Raycast(ray, out hit, 3))
             {
                 rayCollider = hit.collider.gameObject;
                 /*Debug.Log("Found something");
