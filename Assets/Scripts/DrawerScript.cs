@@ -32,15 +32,22 @@ public class DrawerScript : MonoBehaviour
         if(isOpen)
         {
 
+
+
+
             Debug.Log("Try to Close Drawer");
-            gameObject.GetComponentInParent<Transform>().localPosition -= Vector3.forward * moveDistance;
+            GetComponent<Animator>().Play("close_drawer", 0, 0);
+            //gameObject.GetComponentInParent<Transform>().localPosition -= Vector3.forward * moveDistance;
             isOpen = false;
 
         } 
         else if (!isOpen) 
         {
+
             Debug.Log("Try to Open Drawer");
-            gameObject.GetComponentInParent<Transform>().localPosition += Vector3.forward * moveDistance;
+            GetComponent<Animator>().Play("open_drawer", 0, 0);
+            
+            //gameObject.GetComponentInParent<Transform>().localPosition += Vector3.forward * moveDistance;
             isOpen = true;
 
         }
