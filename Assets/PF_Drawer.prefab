@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 8817027051177006692}
   - component: {fileID: 1808917888516996462}
   - component: {fileID: 6113729776384729439}
+  - component: {fileID: 1152024470198090988}
+  - component: {fileID: 6133567320427883183}
   m_Layer: 7
   m_Name: Drawer
   m_TagString: Untagged
@@ -153,3 +155,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.64835525, y: 0.34506786, z: 0.06}
   m_Center: {x: -0.0020934946, y: 0.99501795, z: -1.57}
+--- !u!111 &1152024470198090988
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229697455135573847}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: fe31cfc132d704047943b0c89af343ea, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &6133567320427883183
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229697455135573847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe4275a8ba7bf38449fefffbb7b62623, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
