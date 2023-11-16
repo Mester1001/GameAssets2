@@ -7,53 +7,47 @@ public class DrawerScript : MonoBehaviour
 
     [SerializeField] private bool isOpen = false;
     [SerializeField] private bool isBusy = false;
-    [SerializeField] private float moveDistance = 1.0f;
 
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     public void interactWithDrawer()
     {
         
-        if(isBusy)  {return; }
+        if(isBusy)  {
+            Debug.Log("Busy");
+            return; }
 
         if(isOpen)
         {
-
-
-
-
-            Debug.Log("Try to Close Drawer");
+            
             GetComponent<Animator>().Play("close_drawer", 0, 0);
-            //gameObject.GetComponentInParent<Transform>().localPosition -= Vector3.forward * moveDistance;
             isOpen = false;
+            StartCoroutine(waiter());
 
-        } 
+        }
         else if (!isOpen) 
         {
 
-            Debug.Log("Try to Open Drawer");
-            GetComponent<Animator>().Play("open_drawer", 0, 0);
             
-            //gameObject.GetComponentInParent<Transform>().localPosition += Vector3.forward * moveDistance;
+            GetComponent<Animator>().Play("open_drawer", 0, 0);
             isOpen = true;
-
+            StartCoroutine(waiter());
         }
 
 
     }
+
+    IEnumerator waiter()
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(1);
+
+        isBusy = false;
+    }
+
 
 
 
