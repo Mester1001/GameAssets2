@@ -19,6 +19,7 @@ public class playerMovement : MonoBehaviour
 {
     
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float sideWayMultiply = 0.5f;
     [SerializeField] private float mouseSens = 2f;
     [SerializeField] private float jumpHeight = 5f;
     [SerializeField] private float rayReach = 1f;
@@ -85,11 +86,11 @@ public class playerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position -= transform.right * moveSpeed * Time.deltaTime;
+            transform.position -= transform.right * moveSpeed * Time.deltaTime * sideWayMultiply;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * moveSpeed * Time.deltaTime;
+            transform.position += transform.right * moveSpeed * Time.deltaTime * sideWayMultiply;
         }
 
         if (Input.GetKey(KeyCode.Space))
