@@ -27,8 +27,10 @@ public class interactingScript : MonoBehaviour
     [SerializeField] private GameObject sharkSubKey;
     [SerializeField] private GameObject sharkSub;
     [SerializeField] private GameObject UIReference;
+    [SerializeField] private GameObject consoleButton;
     private bool leftHandFull = false;
     [SerializeField] private GameObject flashlightScript;
+    [SerializeField] private GameObject lightsParent;
     private GameObject rayCollider;
 
 
@@ -94,6 +96,10 @@ public class interactingScript : MonoBehaviour
                         leftHandContent = null;
 
                         //Remember to do whatever the generator will do.
+
+                        consoleButton.GetComponent<buttonDoesThis>().powerOn = true;
+                        lightsParent.SetActive(true);
+
 
                     }
 
