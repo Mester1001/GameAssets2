@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ public class interacteble : MonoBehaviour
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private AnimationClip animation1;
     [SerializeField] private AnimationClip animation2_Optional;
+    [SerializeField] private buttonDoesThis scriptLink = null;
 
 
 
@@ -29,7 +31,8 @@ public class interacteble : MonoBehaviour
         if (!isOpen)
         {
             GetComponent<Animator>().Play(animation1.name, 0, 0);
-            isOpen = true;
+            if (animation2_Optional != null) { isOpen = true; }
+            if (scriptLink != null) { scriptLink.buttonPressed(); }
             if (oneShot) { stopped = true; return; }
             StartCoroutine(waiter());
         }
