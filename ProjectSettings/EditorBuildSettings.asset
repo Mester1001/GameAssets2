@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Code test enviroment1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Isak_TestLevelScene.unity
     guid: a7f9cf253a22fd74bb96bfdc65ed5b3b
+  - enabled: 1
+    path: Assets/Scenes/Robin test 2.unity
+    guid: b57edd495c9148347ac2deef31be3a67
   m_configObjects: {}
