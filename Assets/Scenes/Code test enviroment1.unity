@@ -1464,6 +1464,7 @@ GameObject:
   - component: {fileID: 792848827}
   - component: {fileID: 792848832}
   - component: {fileID: 792848833}
+  - component: {fileID: 792848834}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1639,6 +1640,14 @@ MonoBehaviour:
   consoleButton: {fileID: 0}
   flashlightScript: {fileID: 8203134041738673963}
   lightsParent: {fileID: 0}
+--- !u!81 &792848834
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792848826}
+  m_Enabled: 1
 --- !u!1 &839189815
 GameObject:
   m_ObjectHideFlags: 0

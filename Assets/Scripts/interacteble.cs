@@ -32,7 +32,7 @@ public class interacteble : MonoBehaviour
         if (!isOpen)
         {
             GetComponent<Animator>().Play(animation1.name, 0, 0);
-            soundToPlay.Play();
+            if (soundToPlay != null) { soundToPlay.Play(); }
             if (animation2_Optional != null) { isOpen = true; }
             if (scriptLink != null) { scriptLink.buttonPressed(); }
             if (oneShot) { stopped = true; return; }
