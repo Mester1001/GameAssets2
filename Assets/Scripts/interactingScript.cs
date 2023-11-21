@@ -75,7 +75,7 @@ public class interactingScript : MonoBehaviour
                         rayCollider.transform.position = rightHand.transform.position;
                         rayCollider.transform.rotation = rightHand.transform.rotation;
                     }
-                    else if (!leftHandFull && (rayCollider == fuse || rayCollider == sharkSubKey))
+                    else if (!leftHandFull && (rayCollider == fuse || rayCollider == sharkSubKey)) //If the raycast hits either the fuse or keys and left hand is empty, place object on left hand.
                     {
                         leftHandFull = true;
                         leftHandContent = rayCollider;
@@ -83,6 +83,8 @@ public class interactingScript : MonoBehaviour
                         leftHandContent.transform.parent = leftHand.transform;
                         leftHandContent.transform.position = leftHand.transform.position;
                         leftHandContent.transform.rotation = leftHand.transform.rotation;
+                        if (rayCollider == sharkSubKey) { if (sharkSubKey.GetComponent<AudioSource>() != null) { sharkSubKey.GetComponent<AudioSource>().Play(); } }
+                        if (rayCollider == fuse) { if (fuse.GetComponent<AudioSource>() != null) { fuse.GetComponent<AudioSource>().Play(); } } //remember to Place sound on the fuse
                     }
 
                     //If player has fuse place fuse in generator.
@@ -96,6 +98,8 @@ public class interactingScript : MonoBehaviour
                         leftHandContent = null;
 
                         //Remember to do whatever the generator will do.
+
+                        if (rayCollider.GetComponent<AudioSource>() != null) { rayCollider.GetComponent<AudioSource>().Play(); };
 
                         consoleButton.GetComponent<buttonDoesThis>().powerOn = true;
                         lightsParent.SetActive(true);

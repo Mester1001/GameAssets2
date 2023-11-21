@@ -12,6 +12,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private float multiplier = 2f;
     [SerializeField] private GameObject Spotlight;
     [SerializeField] public bool hasFlashlight = false;
+    [SerializeField] private AudioSource soundToPlay = null;
     private float countdown = 0;
 
 
@@ -32,7 +33,8 @@ public class Flashlight : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && countdown < maxTime)
         {
-            Debug.Log("Pressed left-click.");
+            //Debug.Log("Pressed left-click.");
+            if (soundToPlay != null) { soundToPlay.Play(); }
             Spotlight.SetActive(true);
             countdown += time;
         }

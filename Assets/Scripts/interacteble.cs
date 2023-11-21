@@ -16,7 +16,7 @@ public class interacteble : MonoBehaviour
     [SerializeField] private AnimationClip animation2_Optional;
     [SerializeField] private buttonDoesThis scriptLink = null;
     [SerializeField] private AudioSource soundToPlay = null;
-
+    [SerializeField] private AudioSource soundToPlay2 = null;
 
 
     public void interacted()
@@ -41,6 +41,7 @@ public class interacteble : MonoBehaviour
         else if (isOpen)
         {
             GetComponent<Animator>().Play(animation2_Optional.name, 0, 0);
+            if (soundToPlay2 != null) { soundToPlay2.Play(); }
             isOpen = false;
             StartCoroutine(waiter());
         }
