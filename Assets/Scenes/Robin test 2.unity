@@ -3913,6 +3913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_FuseScripted
       objectReference: {fileID: 0}
+    - target: {fileID: 3613182431175693031, guid: 3631606097efc8149a02c1407224393f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a149e0cf6d700840bf226e7ced380fd, type: 2}
     - target: {fileID: 8113700182299645709, guid: 3631606097efc8149a02c1407224393f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.488465
@@ -7274,7 +7278,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1eba05d4282b65f45a46313db8a2b0a9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10023,6 +10027,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 429172019}
     m_Modifications:
+    - target: {fileID: 753062656840122922, guid: a6ee0a023142a4b47b8134ce5401367a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 382eb6290313f3b4682e16097bf1622f, type: 2}
+    - target: {fileID: 1382763536482120478, guid: a6ee0a023142a4b47b8134ce5401367a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 382eb6290313f3b4682e16097bf1622f, type: 2}
+    - target: {fileID: 2603497800820907254, guid: a6ee0a023142a4b47b8134ce5401367a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 382eb6290313f3b4682e16097bf1622f, type: 2}
     - target: {fileID: 3922268873855016060, guid: a6ee0a023142a4b47b8134ce5401367a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.003985269
