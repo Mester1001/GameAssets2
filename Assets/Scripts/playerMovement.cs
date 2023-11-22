@@ -28,6 +28,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private bool isGrounded = true;
     [SerializeField] private Rigidbody Rigidbody;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject respawnPoint;
     public bool canMove = true;
 
 
@@ -52,8 +53,14 @@ public class playerMovement : MonoBehaviour
         RaycastHit hit;
 
         isGrounded = Physics.SphereCast(transform.position, rayRadius, Vector3.down, out hit, rayReach, groundLayer);
-        
-             
+
+
+        if (this.transform.position.y < -100)
+        {
+            this.transform.position = respawnPoint.transform.position;
+        }
+
+
     }
 
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* By Isak Sørøy
  * created 20.Sep 2023
@@ -66,6 +67,11 @@ public class UIScript : MonoBehaviour
             Debug.Log("Attempting to Exit game");
             Application.Quit(); 
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
     }
 
     public void Victory()
