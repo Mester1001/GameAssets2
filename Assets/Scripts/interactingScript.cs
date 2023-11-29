@@ -31,6 +31,9 @@ public class interactingScript : MonoBehaviour
     private bool leftHandFull = false;
     [SerializeField] private GameObject flashlightScript;
     [SerializeField] private GameObject lightsParent;
+    [SerializeField] private playerMovement playerScript;
+    [SerializeField] private GameObject sharkCam;
+    [SerializeField] private AnimationClip exitAnimation;
     private GameObject rayCollider;
 
 
@@ -116,11 +119,32 @@ public class interactingScript : MonoBehaviour
                         leftHandFull = false;
                         leftHandContent = null;
 
-                        UIReference.gameObject.GetComponent<UIScript>().Victory();
+                        playerScript.canMove = false;
+                        Camera.main.transform.parent = sharkCam.transform;
+                        Camera.main.transform.position = sharkCam.transform.position;
+                        Camera.main.transform.rotation = sharkCam.transform.rotation;
+
+                        flashlight.SetActive(false);
+                        sharkSubKey.SetActive(false);
+
+                        sharkSub.GetComponent<Animator>().Play(exitAnimation.name, 0, 0);
+
+                        StartCoroutine(waiter(6f));
+                        
+
 
                     }
                 }
             }
         }
     }
+
+    IEnumerator waiter(float time)
+    {
+        
+        yield return new WaitForSeconds(time);
+        UIReference.gameObject.GetComponent<UIScript>().Victory();
+    }
+
+
 }

@@ -2231,12 +2231,12 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469268166}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: be0ceab76a7f1d347a848fc1002f594b, type: 2}
   m_Animations: []
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &469268169
@@ -2260,6 +2260,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &469268170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1235562694982976027, guid: 8fa5341151214e340a6ac6d390188b46, type: 3}
+  m_PrefabInstance: {fileID: 890983864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &474487837 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8531233740259397374, guid: 7333e38ebef018541a98e739a4e88457, type: 3}
@@ -2292,6 +2297,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1382682479926693322, guid: cab9f10157f6a1748911e179093e58cc, type: 3}
   m_PrefabInstance: {fileID: 1933913428}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &492541051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492541052}
+  - component: {fileID: 492541053}
+  m_Layer: 0
+  m_Name: SharkLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492541052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492541051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.58, y: 2.17, z: -0.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 469268170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &492541053
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492541051}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 23.294239
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!4 &515121299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7180464b9d5c68646a0264308d293e15, type: 3}
@@ -4331,7 +4430,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1235562694982976027, guid: 8fa5341151214e340a6ac6d390188b46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1519769372}
+    - targetCorrespondingSourceObject: {fileID: 1235562694982976027, guid: 8fa5341151214e340a6ac6d390188b46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 492541052}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1904540047346964641, guid: 8fa5341151214e340a6ac6d390188b46, type: 3}
       insertIndex: -1
@@ -5044,8 +5149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036231210}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.545, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7622,8 +7727,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1227930574}
-  - {fileID: 1036231213}
   - {fileID: 1144282087}
+  - {fileID: 1036231213}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1485258353
@@ -7680,6 +7785,9 @@ MonoBehaviour:
   consoleButton: {fileID: 831991922}
   flashlightScript: {fileID: 899617783}
   lightsParent: {fileID: 543094143}
+  playerScript: {fileID: 1485258348}
+  sharkCam: {fileID: 1519769371}
+  exitAnimation: {fileID: 7400000, guid: be0ceab76a7f1d347a848fc1002f594b, type: 2}
 --- !u!82 &1485258355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8037,6 +8145,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 831991923}
   m_SourcePrefab: {fileID: 100100000, guid: b49ccae09de13774fb0b8817f9f2ffc0, type: 3}
+--- !u!1 &1519769371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519769372}
+  m_Layer: 0
+  m_Name: SharkCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519769372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519769371}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.19634943, y: -0.5484665, z: 0.1327974, w: 0.8018704}
+  m_LocalPosition: {x: 6.864443, y: 3.2798011, z: -1.8166842}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 469268170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1525128199
 PrefabInstance:
   m_ObjectHideFlags: 0
